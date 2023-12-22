@@ -2,7 +2,7 @@ name: Verify Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "develocity-0" ]
   pull_request:
   workflow_dispatch:
 
@@ -20,6 +20,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: ./mvnw clean verify
+      run: mvn clean verify
       env:
           GRADLE_ENTERPRISE_ACCESS_KEY: ${{ secrets.GRADLE_ENTERPRISE_ACCESS_KEY }}
